@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-public class Laser1: Projectile
+public class LaserBasic: Projectile
 {
    public override void Start()
     {
-        speed = 0.5f;
+        speed = 0.25f;
     }
 }

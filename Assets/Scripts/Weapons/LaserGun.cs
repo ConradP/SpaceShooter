@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LaserGun : Weapon {
 
-    public Laser1 laserPrefab;
+    public LaserBasic laserPrefab;
     private readonly double  cooldown = 250;
     public LaserGun()
     {
