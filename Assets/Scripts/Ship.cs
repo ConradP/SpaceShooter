@@ -7,13 +7,15 @@ public class Ship : MonoBehaviour {
 
     [SerializeField]
     private int health;
+    [SerializeField]
+    private Laser1 weapon;
+
     float screenWidth, screenHeight;
     public int Health { get { return health; } }   
 	// Use this for initialization
 	void Start () {
         screenWidth = Screen.width;
         screenHeight = Screen.height;
-        
     }
 	
 	// Update is called once per frame
@@ -32,7 +34,7 @@ public class Ship : MonoBehaviour {
 
     public void Shoot()
     {
-        //pew pew
+        var bullet = Instantiate(weapon, transform.localPosition,Quaternion.identity);
     }
 
     //other fancy things
