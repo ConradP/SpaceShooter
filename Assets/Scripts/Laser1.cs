@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class Laser1: MonoBehaviour
+public class Laser1: Projectile
 {
     void Start()
     {

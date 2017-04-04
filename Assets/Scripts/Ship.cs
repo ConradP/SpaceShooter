@@ -8,7 +8,7 @@ public class Ship : MonoBehaviour {
     [SerializeField]
     private int health;
     [SerializeField]
-    private Laser1 weapon;
+    private Weapon weapon;
 
     float screenWidth, screenHeight;
     public int Health { get { return health; } }   
@@ -34,7 +34,7 @@ public class Ship : MonoBehaviour {
 
     public void Shoot()
     {
-        var bullet = Instantiate(weapon, transform.localPosition,Quaternion.identity);
+        weapon.Fire();
     }
 
     //other fancy things
