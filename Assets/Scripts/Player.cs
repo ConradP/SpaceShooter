@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         if (x != 0 || y != 0)
         {
-            ship.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            ship.Move(Input.GetAxis("Horizontal")/2, Input.GetAxis("Vertical")/2);
         }
         
         if (Input.GetButton("Fire1"))
