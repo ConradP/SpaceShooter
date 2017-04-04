@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour {
     public Transform TopHalf, BottomHalf;
-    private float resetY = 10.0f;
-    private float limitY = -10.0f;
+    private readonly float resetY = 10.0f;
+    private readonly float limitY = -10.0f;
+    public float scrollSpeed = 0.01f;
 	// Use this for initialization
 	void Start () {
         
@@ -28,7 +29,7 @@ public class BackgroundScroller : MonoBehaviour {
 
     private void moveBackGround(Transform background)
     {
-        background.localPosition = new Vector3(background.localPosition.x, background.localPosition.y - 0.01f, background.localPosition.z);
+        background.localPosition = new Vector3(background.localPosition.x, background.localPosition.y - scrollSpeed, background.localPosition.z);
     }
 
     
