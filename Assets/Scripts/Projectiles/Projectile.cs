@@ -1,26 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using Assets.Scripts;
 
-public abstract class Projectile : MonoBehaviour {
-  
-    protected float speed;
+public abstract class Projectile : MovingObject {
 
-    protected readonly float Bounds = 10.0f;
-    
-    public abstract void Start();
-
-     public virtual void Update()
+     public override void Update()
     {
-        transform.position += transform.up * speed;
-        BoundsCheck();
-    }
-
-    private void BoundsCheck()
-    {
-        var pos = transform.localPosition;
-       if (Math.Abs(pos.x)>Bounds || Math.Abs(pos.y) > Bounds)
-        {
-            Destroy(gameObject);
-        }
+        transform.localPosition += transform.up * speed;
+        base.Update();
     }
 }

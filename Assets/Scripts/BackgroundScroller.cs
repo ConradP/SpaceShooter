@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Assets.Scripts;
 using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour {
     public Transform TopHalf, BottomHalf;
-    private readonly float resetY = 10.0f;
-    private readonly float limitY = -10.0f;
-    public float scrollSpeed = 0.01f;
+    private readonly float resetY = GameController.Bounds;
+    private readonly float limitY = -GameController.Bounds;
+    public float scrollSpeed = GameController.scrollspeed;
 	// Use this for initialization
 	void Start () {
         
