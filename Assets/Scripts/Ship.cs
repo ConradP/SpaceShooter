@@ -4,32 +4,48 @@ using UnityEngine;
 /// <summary>
 /// api for handling inputs from the player class
 /// </summary>
-public class Ship : MovingObject {
+public class Ship : MovingObject
+{
 
     [SerializeField]
     private int health;
     [SerializeField]
     private Weapon weapon;
-   
+    private Rigidbody2D rb;
+    [SerializeField]
+    private DamageReceiver damageReceiver;
+
     float screenWidth, screenHeight;
     public int Health { get { return health; } }
     // Use this for initialization
-    public override void  Start () {
+    public override void Start()
+    {
         screenWidth = Screen.width;
         screenHeight = Screen.height;
+        rb = GetComponent<Rigidbody2D>();
+        damageReceiver.onDamageReceived += HandleDamageReceived;
+    }
+
+    private void HandleDamageReceived(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Move(float deltaX, float deltaY)
     {
-       
+
         deltaX *= speed;
         deltaY *= speed;
-      
-        transform.Translate(deltaX, deltaY, 0);
+        rb.velocity = new Vector3(deltaX, deltaY, 0);
+        // transform.Translate(deltaX, deltaY, 0);
         var newLocation = Camera.main.WorldToScreenPoint(transform.position);
         newLocation.x = Mathf.Clamp(newLocation.x, 0, screenWidth);
         newLocation.y = Mathf.Clamp(newLocation.y, 0, screenHeight);
-        transform.position = Camera.main.ScreenToWorldPoint(newLocation);       
+        transform.position = Camera.main.ScreenToWorldPoint(newLocation);
     }
 
     public void Shoot()
@@ -42,4 +58,5 @@ public class Ship : MovingObject {
     {
         health += amount;
     }
+
 }

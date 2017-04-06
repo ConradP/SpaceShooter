@@ -6,7 +6,8 @@ namespace Assets.Scripts
     public abstract class MovingObject :MonoBehaviour
     {
         public float speed;
-        protected float Bounds = GameController.Bounds;
+        protected float verticalBounds = GameController.verticalBounds;
+        protected float horizontalBounds = GameController.horizontalBounds;
         public virtual void Start() { }
         public virtual void Update() {
             BoundsCheck();
@@ -15,7 +16,7 @@ namespace Assets.Scripts
         protected void BoundsCheck()
         {
             var pos = transform.localPosition;
-            if (Math.Abs(pos.x) > Bounds || Math.Abs(pos.y) > Bounds)
+            if (Math.Abs(pos.x) > horizontalBounds || Math.Abs(pos.y) > verticalBounds)
             {
                 Destroy(gameObject);
             }

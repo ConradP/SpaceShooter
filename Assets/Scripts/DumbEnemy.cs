@@ -1,6 +1,4 @@
-﻿using System;
-using Assets.Scripts;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DumbEnemy : MonoBehaviour
 {
@@ -8,8 +6,12 @@ public class DumbEnemy : MonoBehaviour
     public bool directionToggle;
 
     // Update is called once per frame
-     void Update()
+    void Update()
     {
+        if (ship == null)
+            return;
+
+
         if (directionToggle)
         {
             ship.Move(1.0f, 0f);
@@ -26,11 +28,11 @@ public class DumbEnemy : MonoBehaviour
 
     private void checkDirection()
     {
-        if (ship.transform.localPosition.x >= 8f)
+        if (ship.transform.position.x >= 8f)
         {
             directionToggle = !directionToggle;
         }
-        if(ship.transform.localPosition.x <= -8f)
+        if (ship.transform.position.x <= -8f)
         {
             directionToggle = !directionToggle;
         }

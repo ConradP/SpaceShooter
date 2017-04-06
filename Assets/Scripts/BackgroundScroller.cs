@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour {
     public Transform TopHalf, BottomHalf;
-    private readonly float resetY = GameController.Bounds;
-    private readonly float limitY = -GameController.Bounds;
+    private readonly float resetY = GameController.verticalBounds;
+    private readonly float limitY = -GameController.verticalBounds;
     public float scrollSpeed = GameController.scrollspeed;
 	// Use this for initialization
 	void Start () {
