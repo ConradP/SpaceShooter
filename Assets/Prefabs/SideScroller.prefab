@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 50954313251058672}
   - component: {fileID: 58740933814084874}
   - component: {fileID: 114971163529424398}
+  - component: {fileID: 111488782032854592}
+  - component: {fileID: 95806468464064474}
   m_Layer: 8
   m_Name: ufoBlue
   m_TagString: Untagged
@@ -109,6 +111,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.455
+--- !u!95 &95806468464064474
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129983452462976}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6cd125ba175b9c4bba0cf3769bfd81c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &111488782032854592
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1129983452462976}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: dcbcc10b127aed14caa6706d00d182c0, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114008832000214358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5019bd68b1d12a04e8383807625d183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   health: 1
   weapon: {fileID: 114438819874488658}
   damageReceiver: {fileID: 114971163529424398}
