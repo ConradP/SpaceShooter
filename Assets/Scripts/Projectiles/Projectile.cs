@@ -31,6 +31,7 @@ public abstract class Projectile : MovingObject {
         if ( receiver != null )
         {
             receiver.ApplyDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

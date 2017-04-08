@@ -28,11 +28,11 @@ public class DumbEnemy : MonoBehaviour
 
     private void checkDirection()
     {
-        if (ship.transform.position.x >= 8f)
+        if (ship.transform.position.x >= 8f && directionToggle)
         {
             directionToggle = !directionToggle;
         }
-        if (ship.transform.position.x <= -8f)
+        if (ship.transform.position.x <= -8f && !directionToggle)
         {
             directionToggle = !directionToggle;
         }
