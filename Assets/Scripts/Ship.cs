@@ -7,13 +7,13 @@ using UnityEngine;
 public class Ship : MovingObject
 {
 
-    [SerializeField]
-    private int health;
-    [SerializeField]
-    private Weapon weapon;
+
+    public int health;
+    public Weapon weapon;
+    public DamageReceiver damageReceiver;
+    public Engine engine;
+    public Shield shield;
     private Rigidbody2D rb;
-    [SerializeField]
-    private DamageReceiver damageReceiver;
 
     float screenWidth, screenHeight;
     public int Health { get { return health; } }
