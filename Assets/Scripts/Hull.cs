@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hull : MonoBehaviour {
@@ -12,9 +10,9 @@ public class Hull : MonoBehaviour {
         damageReceiver.onDamageReceived += damage_applied;
 	}
 
-    private void damage_applied(int obj)
+    private void damage_applied(int damage)
     {
-        throw new NotImplementedException();
+        health -= damage;
     }
 
     public bool hasHealth()

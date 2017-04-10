@@ -33,11 +33,11 @@ public class Ship : MovingObject
         {
             if (shield.hasCharges())
             {
-                shield.charges -= 1;
+                shield.damageReceiver.ApplyDamage(1);
             }
             else if (hull.hasHealth())
             {
-                hull.health -= 1;
+                hull.damageReceiver.ApplyDamage(1);
             }
             else
             {
