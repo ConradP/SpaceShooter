@@ -6,17 +6,14 @@ using UnityEngine;
 /// </summary>
 public class Ship : MovingObject
 {
-
-
-    public int health;
     public Weapon weapon;
     public DamageReceiver damageReceiver;
     public Engine engine;
     public Shield shield;
-    private Rigidbody2D rb;
+    public Hull hull;
+    public Rigidbody2D rb;
 
     float screenWidth, screenHeight;
-    public int Health { get { return health; } }
     // Use this for initialization
     public override void Start()
     {
@@ -26,20 +23,35 @@ public class Ship : MovingObject
         damageReceiver.onDamageReceived += HandleDamageReceived;
     }
 
+    /// <summary>
+    /// ship distributes total damage received point by point, first to the shields then the hull.
+    /// </summary>
+    /// <param name="amount"></param>
     private void HandleDamageReceived(int amount)
     {
-        health -= amount;
-        if (health <= 0)
+        for (int i = 0; i < amount; i++)
         {
-            Destroy(gameObject);
+            if (shield.hasCharges())
+            {
+                shield.charges -= 1;
+            }
+            else if (hull.hasHealth())
+            {
+                hull.health -= 1;
+            }
+            else
+            {
+                Destroy(gameObject);
+                break;
+            }
         }
     }
 
     public void Move(float deltaX, float deltaY)
     {
 
-        deltaX *= speed;
-        deltaY *= speed;
+        deltaX *= engine.thrust;
+        deltaY *= engine.thrust;
         rb.velocity = new Vector3(deltaX, deltaY, 0);
         // transform.Translate(deltaX, deltaY, 0);
         var newLocation = Camera.main.WorldToScreenPoint(transform.position);
@@ -52,11 +64,4 @@ public class Ship : MovingObject
     {
         weapon.Fire();
     }
-
-    //other fancy things
-    public void ModifyHealth(int amount)
-    {
-        health += amount;
-    }
-
 }

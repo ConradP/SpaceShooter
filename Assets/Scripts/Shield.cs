@@ -25,4 +25,9 @@ public class Shield : MonoBehaviour {
         if(charges < maxCharges) charges += 1;
         rechargeTimer.Start();
     }
+
+    public bool hasCharges()
+    {
+        return charges > 0;
+    }
 }

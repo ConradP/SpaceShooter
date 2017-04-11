@@ -3,9 +3,9 @@ using UnityEngine;
 
 public abstract class Projectile : MovingObject {
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public int damage;
-
+    public float speed;
     public override void Start()
     {
         base.Start();

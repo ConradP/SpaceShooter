@@ -6,8 +6,8 @@
 public class Player : MonoBehaviour
 {
 
-    [SerializeField]
-    private Ship ship;
+
+    public Ship ship;
 
     // Use this for initialization
     void Start()

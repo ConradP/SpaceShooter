@@ -5,7 +5,7 @@ namespace Assets.Scripts
 {
     public abstract class MovingObject :MonoBehaviour
     {
-        public float speed;
+        public SpriteRenderer sprite;
         protected float verticalBounds = GameController.verticalBounds;
         protected float horizontalBounds = GameController.horizontalBounds;
         public virtual void Start() { }
