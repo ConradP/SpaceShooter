@@ -1,12 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hull : MonoBehaviour {
     public int health;
     public DamageReceiver damageReceiver;
     public SpriteRenderer sprite;
-	// Use this for initialization
-	void Start () {
+    public int maxHealth;
+
+    // Use this for initialization
+    void Start () {
+        health = maxHealth;
         damageReceiver.onDamageReceived += damage_applied;
 	}
 
